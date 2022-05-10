@@ -10,7 +10,7 @@ function CourseImage({ id, title, slug }) {
           src={`src/components/images/${id}.jpg`}
           onError={({ currentTarget }) => {
             currentTarget.onerror = null; // prevents looping
-            currentTarget.src = `src/components/images/0.jpg`;
+            currentTarget.src = `src/components/images/default.jpg`;
           }}
           width="300"
           alt={`${title}`}
