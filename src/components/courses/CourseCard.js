@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 function CourseImage({ id, title, slug }) {
@@ -19,6 +20,11 @@ function CourseImage({ id, title, slug }) {
     </div>
   );
 }
+CourseImage.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+};
 
 function CourseDetails({ title, authorName, category, course, onDeleteClick }) {
   return (
@@ -46,6 +52,13 @@ function CourseDetails({ title, authorName, category, course, onDeleteClick }) {
     </div>
   );
 }
+CourseDetails.propTypes = {
+  title: PropTypes.string.isRequired,
+  authorName: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  course: PropTypes.object.isRequired,
+  onDeleteClick: PropTypes.any,
+};
 
 function CourseCard({ course, onDeleteClick }) {
   const { id, title, authorName, category, slug } = course;
@@ -64,5 +77,9 @@ function CourseCard({ course, onDeleteClick }) {
     </div>
   );
 }
+CourseCard.propTypes = {
+  course: PropTypes.object.isRequired,
+  onDeleteClick: PropTypes.any,
+};
 
 export default CourseCard;
