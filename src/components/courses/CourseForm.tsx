@@ -1,16 +1,25 @@
 import React from "react";
-import PropTypes from "prop-types";
 import TextInput from "../common/TextInput";
 import SelectInput from "../common/SelectInput";
 
-const CourseForm = ({
-  course,
-  authors,
-  onSave,
-  onChange,
-  saving = false,
-  errors = {},
-}) => {
+export type FormProps = {
+  course: any;
+  authors: any;
+  onSave: any;
+  onChange: any;
+  saving: boolean;
+  errors: any;
+};
+
+const CourseForm = (props: FormProps) => {
+  const {
+    course,
+    authors,
+    onSave,
+    onChange,
+    saving = false,
+    errors = {},
+  } = props;
   return (
     <form onSubmit={onSave}>
       <h2>{course.id ? "Edit" : "Add"} Course</h2>
@@ -23,6 +32,7 @@ const CourseForm = ({
         name="title"
         label="Title"
         value={course.title}
+        placeholder="Enter Course Title"
         onChange={onChange}
         error={errors.title}
       />
@@ -44,6 +54,7 @@ const CourseForm = ({
         name="category"
         label="Category"
         value={course.category}
+        placeholder="Enter Course Category"
         onChange={onChange}
         error={errors.category}
       />
@@ -53,15 +64,6 @@ const CourseForm = ({
       </button>
     </form>
   );
-};
-
-CourseForm.propTypes = {
-  authors: PropTypes.array.isRequired,
-  course: PropTypes.object.isRequired,
-  errors: PropTypes.object,
-  onSave: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
-  saving: PropTypes.bool,
 };
 
 export default CourseForm;

@@ -1,15 +1,17 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-const SelectInput = ({
-  name,
-  label,
-  onChange,
-  defaultOption,
-  value,
-  error,
-  options
-}) => {
+export type SelectProps = {
+  name: string;
+  label: string;
+  onChange: any;
+  defaultOption: string;
+  value: string | number;
+  error: string;
+  options: any;
+};
+
+const SelectInput = (props: SelectProps) => {
+  const { name, label, onChange, defaultOption, value, error, options } = props;
   return (
     <div className="form-group">
       <label htmlFor={name}>{label}</label>
@@ -22,7 +24,7 @@ const SelectInput = ({
           className="form-control"
         >
           <option value="">{defaultOption}</option>
-          {options.map(option => {
+          {options.map((option) => {
             return (
               <option key={option.value} value={option.value}>
                 {option.text}
@@ -34,16 +36,6 @@ const SelectInput = ({
       </div>
     </div>
   );
-};
-
-SelectInput.propTypes = {
-  name: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  defaultOption: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  error: PropTypes.string,
-  options: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default SelectInput;

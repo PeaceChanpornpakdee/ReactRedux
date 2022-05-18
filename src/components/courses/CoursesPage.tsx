@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import * as courseActions from "../../redux/actions/courseActions";
 import * as authorActions from "../../redux/actions/authorActions";
-import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import CourseList from "./CourseList";
 import { Redirect } from "react-router-dom";
@@ -10,6 +9,13 @@ import Spinner from "../common/Spinner";
 import { toast } from "react-toastify";
 
 class CoursesPage extends React.Component {
+  props: {
+    courses: any;
+    authors: any;
+    actions: any;
+    loading: boolean;
+  };
+
   state = {
     redirectToAddCoursePage: false,
   };
@@ -66,13 +72,6 @@ class CoursesPage extends React.Component {
     );
   }
 }
-
-CoursesPage.propTypes = {
-  authors: PropTypes.array.isRequired,
-  courses: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired,
-  loading: PropTypes.bool.isRequired,
-};
 
 function mapStateToProps(state) {
   return {

@@ -1,8 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function CourseImage({ id, title, slug }) {
+function CourseImage(props: { id: number; title: string; slug: any }) {
+  const { id, title, slug } = props;
   return (
     <div className="speaker-img d-flex flex-row justify-content-center align-items-center h-300">
       <Link to={"/course/" + slug}>
@@ -20,18 +20,23 @@ function CourseImage({ id, title, slug }) {
     </div>
   );
 }
-CourseImage.propTypes = {
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
-};
 
-function CourseDetails({ title, authorName, category, course, onDeleteClick }) {
+function CourseDetails(props: {
+  title: string;
+  authorName: string;
+  category: string;
+  course: any;
+  slug: any;
+  onDeleteClick: (course: any) => void;
+}) {
+  const { title, authorName, category, course, slug, onDeleteClick } = props;
   return (
     <div className="speaker-info">
-      <div className="d-flex justify-content-between mb-0">
-        <h3 className="text-truncate">{title}</h3>
-      </div>
+      <Link to={"/course/" + slug}>
+        <div className="d-flex justify-content-between mb-0">
+          <h3 className="text-truncate">{title}</h3>
+        </div>
+      </Link>
       <div>
         <p className="card-description">{authorName}</p>
         <div className="social d-flex flex-row mt-4">
@@ -52,15 +57,9 @@ function CourseDetails({ title, authorName, category, course, onDeleteClick }) {
     </div>
   );
 }
-CourseDetails.propTypes = {
-  title: PropTypes.string.isRequired,
-  authorName: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-  course: PropTypes.object.isRequired,
-  onDeleteClick: PropTypes.any,
-};
 
-function CourseCard({ course, onDeleteClick }) {
+function CourseCard(props: { course: any; onDeleteClick: any }) {
+  const { course, onDeleteClick } = props;
   const { id, title, authorName, category, slug } = course;
   return (
     <div className="col-xs-8 col-sm-8 col-md-6 col-lg-4 col-sm-8 col-xs-8">
@@ -71,15 +70,12 @@ function CourseCard({ course, onDeleteClick }) {
           authorName={authorName}
           category={category}
           course={course}
+          slug={slug}
           onDeleteClick={onDeleteClick}
         />
       </div>
     </div>
   );
 }
-CourseCard.propTypes = {
-  course: PropTypes.object.isRequired,
-  onDeleteClick: PropTypes.any,
-};
 
 export default CourseCard;
