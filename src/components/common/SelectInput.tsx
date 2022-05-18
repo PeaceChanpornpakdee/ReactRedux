@@ -4,10 +4,10 @@ export type SelectProps = {
   name: string;
   label: string;
   onChange: any;
-  defaultOption: string;
-  value: string | number;
-  error: string;
-  options: any;
+  defaultOption?: string;
+  value?: string | number;
+  error?: string;
+  options?: any;
 };
 
 const SelectInput = (props: SelectProps) => {
