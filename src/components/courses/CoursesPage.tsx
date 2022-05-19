@@ -49,7 +49,7 @@ class CoursesPage extends React.Component {
     return (
       <>
         {this.state.redirectToAddCoursePage && <Redirect to="/course" />}
-        <h2>Courses</h2>
+        <h2>My Anime Collection</h2>
         {this.props.loading ? (
           <Spinner />
         ) : (
@@ -59,7 +59,7 @@ class CoursesPage extends React.Component {
               className="btn btn-primary add-course"
               onClick={() => this.setState({ redirectToAddCoursePage: true })}
             >
-              Add Course
+              New Anime +
             </button>
 
             <CourseList
