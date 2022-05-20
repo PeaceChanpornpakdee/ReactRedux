@@ -7,7 +7,7 @@ function CourseImage(props: { id: number; title: string; slug: any }) {
     <div className="speaker-img d-flex flex-row justify-content-center align-items-center h-300">
       <Link to={"/collection/" + slug}>
         <img
-          className="contain-fit"
+          className="cover-fit"
           src={`src/components/images/${id}.jpg`}
           onError={({ currentTarget }) => {
             currentTarget.onerror = null; // prevents looping

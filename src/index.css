@@ -1151,6 +1151,12 @@ input:checked + .switch:before {
   border-radius: 2.5%;
 }
 
+.cover-fit {
+  height: 210px;
+  object-fit: cover;
+  border-radius: 2.5%;
+}
+
 .w-200 {
   width: 200px;
 }
