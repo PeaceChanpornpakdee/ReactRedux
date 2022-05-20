@@ -5,7 +5,7 @@ function CourseImage(props: { id: number; title: string; slug: any }) {
   const { id, title, slug } = props;
   return (
     <div className="speaker-img d-flex flex-row justify-content-center align-items-center h-300">
-      <Link to={"/course/" + slug}>
+      <Link to={"/collection/" + slug}>
         <img
           className="contain-fit"
           src={`src/components/images/${id}.jpg`}
@@ -32,7 +32,7 @@ function CourseDetails(props: {
   const { title, authorName, category, course, slug, onDeleteClick } = props;
   return (
     <div className="speaker-info">
-      <Link to={"/course/" + slug}>
+      <Link to={"/collection/" + slug}>
         <div className="d-flex justify-content-between mb-0">
           <h3 className="text-truncate">{title}</h3>
         </div>
