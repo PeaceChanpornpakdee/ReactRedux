@@ -32,7 +32,7 @@ const CourseForm = (props: FormProps) => {
         name="title"
         label="Title"
         value={course.title}
-        placeholder="Enter Course Title"
+        placeholder="Enter Anime Title"
         onChange={onChange}
         error={errors.title}
       />
@@ -54,7 +54,7 @@ const CourseForm = (props: FormProps) => {
         name="category"
         label="Category"
         value={course.category}
-        placeholder="Enter Course Category"
+        placeholder="Enter Category"
         onChange={onChange}
         error={errors.category}
       />
